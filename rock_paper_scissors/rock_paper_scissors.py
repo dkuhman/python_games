@@ -5,3 +5,56 @@
 #Date created: 1/28/2020
 
 import random
+
+print('Welcome to Rock, Paper, Scissors!')
+
+#Compile wins. When one wins 3, the game ends
+user_win_count = 0
+cpu_win_count = 0
+
+choice_list = ['rock','paper','scissors']
+
+while user_win_count < 3 and cpu_win_count < 3:
+    print('Next round!')
+
+    #Let user make a suggestion
+    user_input = input('Please pick a move (rock, paper, scissors):')
+    user_input = user_input.lower()
+    user_input = user_input.rstrip()
+    while user_input not in choice_list:
+        user_input = input('That is not a choice, please pick either rock, paper, or scissors:')
+
+    #The cpu makes a random selection
+    cpu_choice = random.choice(choice_list)
+
+    print('The computer chose:',cpu_choice)
+    print('The user selected:',user_input)
+
+    if cpu_choice == user_input:
+        print('Tie!')
+    elif cpu_choice == 'rock' and user_input == 'scissors':
+        print('CPU Wins!')
+        cpu_win_count = cpu_win_count + 1
+    elif cpu_choice == 'paper' and user_input == 'rock':
+        print('CPU Wins!')
+        cpu_win_count = cpu_win_count + 1
+    elif cpu_choice == 'scissors' and user_input == 'paper':
+        print('CPU Wins!')
+        cpu_win_count = cpu_win_count + 1
+    elif user_input == 'rock' and cpu_choice == 'scissors':
+        print('You Win!')
+        user_win_count = user_win_count + 1
+    elif user_input == 'paper' and cpu_choice == 'rock':
+        print('You Win!')
+        user_win_count = user_win_count + 1
+    elif user_input == 'scissors' and cpu_choice == 'paper':
+        print('You Win!')
+        user_win_count = user_win_count + 1
+
+    #Provide the ongoing score
+    print('Score: User:',user_win_count,'CPU:',cpu_win_count)
+
+if cpu_win_count > user_win_count:
+    print('Oh no, the CPU won - better luck next time!')
+else:
+    print('Congratulations, you won!')
