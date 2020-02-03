@@ -17,14 +17,12 @@ for line in file_handle:
 
 #Select a random word from the list
 game_word = random.choice(list_of_words)
-print(game_word)
 
 #Show the user the number of letters in the game word
 display_word = list()
 for i in range(len(game_word)):
     display_word.append('_ ')
 
-print(display_word)
 print('Your word:',''.join(display_word))
 
 #Start the game
@@ -58,3 +56,6 @@ while misses < 6:
                 if ''.join(display_word) == game_word:
                     print('Congratulations! You won!')
                     break
+
+print('Oh no, you lost!')
+print('The game word was:', game_word)
