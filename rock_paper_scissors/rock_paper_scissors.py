@@ -4,57 +4,72 @@
 #Contact: danielkuhman@gmail.com
 #Date created: 1/28/2020
 
-import random
+import random, os
 
 print('Welcome to Rock, Paper, Scissors!')
 
-#Compile wins. When one wins 3, the game ends
-user_win_count = 0
-cpu_win_count = 0
+game_status = 1
+game_count = 0
 
-choice_list = ['rock','paper','scissors']
+while game_status == 1:
+    game_count = game_count + 1
+    #Compile wins. When one wins 3, the game ends
+    user_win_count = 0
+    cpu_win_count = 0
 
-while user_win_count < 3 and cpu_win_count < 3:
-    print('Next round!')
+    choice_list = ['rock','paper','scissors']
 
-    #Let user make a suggestion
-    user_input = input('Please pick a move (rock, paper, scissors):')
-    user_input = user_input.lower()
-    user_input = user_input.rstrip()
-    while user_input not in choice_list:
-        user_input = input('That is not a choice, please pick either rock, paper, or scissors:')
+    while user_win_count < 3 and cpu_win_count < 3:
+        print('Next round!')
 
-    #The cpu makes a random selection
-    cpu_choice = random.choice(choice_list)
+        #Let user make a suggestion
+        user_input = input('Please pick a move (rock, paper, scissors):')
+        user_input = user_input.lower()
+        user_input = user_input.rstrip()
+        while user_input not in choice_list:
+            user_input = input('That is not a choice, please pick either rock, paper, or scissors:')
 
-    print('The computer chose:',cpu_choice)
-    print('The user selected:',user_input)
+        #The cpu makes a random selection
+        cpu_choice = random.choice(choice_list)
 
-    if cpu_choice == user_input:
-        print('Tie!')
-    elif cpu_choice == 'rock' and user_input == 'scissors':
-        print('CPU Wins!')
-        cpu_win_count = cpu_win_count + 1
-    elif cpu_choice == 'paper' and user_input == 'rock':
-        print('CPU Wins!')
-        cpu_win_count = cpu_win_count + 1
-    elif cpu_choice == 'scissors' and user_input == 'paper':
-        print('CPU Wins!')
-        cpu_win_count = cpu_win_count + 1
-    elif user_input == 'rock' and cpu_choice == 'scissors':
-        print('You Win!')
-        user_win_count = user_win_count + 1
-    elif user_input == 'paper' and cpu_choice == 'rock':
-        print('You Win!')
-        user_win_count = user_win_count + 1
-    elif user_input == 'scissors' and cpu_choice == 'paper':
-        print('You Win!')
-        user_win_count = user_win_count + 1
+        print('The computer chose:',cpu_choice)
+        print('The user selected:',user_input)
 
-    #Provide the ongoing score
-    print('Score: User:',user_win_count,'CPU:',cpu_win_count)
+        if cpu_choice == user_input:
+            print('Tie!')
+        elif cpu_choice == 'rock' and user_input == 'scissors':
+            print('CPU Wins!')
+            cpu_win_count = cpu_win_count + 1
+        elif cpu_choice == 'paper' and user_input == 'rock':
+            print('CPU Wins!')
+            cpu_win_count = cpu_win_count + 1
+        elif cpu_choice == 'scissors' and user_input == 'paper':
+            print('CPU Wins!')
+            cpu_win_count = cpu_win_count + 1
+        elif user_input == 'rock' and cpu_choice == 'scissors':
+            print('You Win!')
+            user_win_count = user_win_count + 1
+        elif user_input == 'paper' and cpu_choice == 'rock':
+            print('You Win!')
+            user_win_count = user_win_count + 1
+        elif user_input == 'scissors' and cpu_choice == 'paper':
+            print('You Win!')
+            user_win_count = user_win_count + 1
 
-if cpu_win_count > user_win_count:
-    print('Oh no, the CPU won - better luck next time!')
-else:
-    print('Congratulations, you won!')
+        #Provide the ongoing score
+        print('Score: User:',user_win_count,'CPU:',cpu_win_count)
+
+    if cpu_win_count > user_win_count:
+        print('Oh no, the CPU won - better luck next time!')
+    else:
+        print('Congratulations, you won!')
+
+    new_game_input = input('Would you like to play a new game? (y/n)')
+    new_game_input = new_game_input.lower()
+    if new_game_input == 'y':
+        game_status = 1
+        clear_cmnd_screen = lambda: os.system('cls') #Clear the command prompt
+        clear_cmnd_screen()
+        print('New game! Good Luck!')
+    else:
+        game_status = 0
