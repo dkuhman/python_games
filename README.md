@@ -20,3 +20,5 @@ The user plays a game designed to demonstrate motor adaptation. The user moves a
 You can toggle feedback by pressing "f" at any point during the game:
 
 <img src="https://github.com/dkuhman/python_games/blob/master/motor_adapt/game_screenshot_feedback.jpg" height="300">
+
+At the end of the game, the user has the option to export error data to a .csv file for further analysis!
