@@ -16,3 +16,7 @@ The user plays tanks! At the moment, the game only includes a single level where
 The user plays a game designed to demonstrate motor adaptation. The user moves a virtual ball upward toward a goal (horizontal line) using the up arrow key. When the user releases the up arrow, the ball's release height is stored and the ball returns to the bottom of the screen. Error is calculated as the vertical position of the line and the center of ball at release height. After a set of 50 virtual ball tosses, the upward velocity of the ball doubles. This velocity change should cause increased error initially, however, over subsequent tosses, the user should adapt to the new velocity and gradually reduce error. 
 
 <img src="https://github.com/dkuhman/python_games/blob/master/motor_adapt/game_screenshot.jpg" height="300">
+
+You can toggle feedback by pressing "f" at any point during the game:
+
+<img src="https://github.com/dkuhman/python_games/blob/master/motor_adapt/game_screenshot_feedback.jpg" height="300">
